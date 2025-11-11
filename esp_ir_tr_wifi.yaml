@@ -5,7 +5,7 @@ remote_receiver:
   pin: 
     number: GPIO14
     inverted: true
-  dump: lg
+  dump: all
 
 remote_transmitter:
   pin: GPIO4

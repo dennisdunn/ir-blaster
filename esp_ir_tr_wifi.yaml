@@ -1,0 +1,13 @@
+# esp_ir_tr_wifi
+# ESP8266 IR transmitter/receiver
+    
+remote_receiver:
+  pin: 
+    number: GPIO14
+    inverted: true
+  dump: lg
+
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%

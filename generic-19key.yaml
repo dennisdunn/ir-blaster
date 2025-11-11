@@ -1,0 +1,211 @@
+binary_sensor:
+  - platform: remote_receiver
+    name: 19Key On
+    lg:
+      data: '0x00FFA25D'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key Timer Off
+    lg:
+      data: '0x00FF629D'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key Off
+    lg:
+      data: '0x00FFE21D'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 6h
+    lg:
+      data: '0x00FF22DD'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 8h
+    lg:
+      data: '0x00FF02FD'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 6639h
+    lg:
+      data: '0x00FFC23D'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 1
+    lg:
+      data: '0x00FFE01F'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 2
+    lg:
+      data: '0x00FFA857'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 3
+    lg:
+      data: '0x00FF906F'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 4
+    lg:
+      data: '0x00FF6897'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 5
+    lg:
+      data: '0x00FF9867'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 6
+    lg:
+      data: '0x00FFB04F'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 7
+    lg:
+      data: '0x00FF30CF'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 8
+    lg:
+      data: '0x00FF18E7'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 9
+    lg:
+      data: '0x00FF7A85'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 10
+    lg:
+      data: '0x00FF10EF'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key 11
+    lg:
+      data: '0x00FF5AA5'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key -
+    lg:
+      data: '0x00FF42BD'
+      nbits: 32
+  - platform: remote_receiver
+    name: 19Key +
+    lg:
+      data: '0x00FF52AD'
+      nbits: 32
+button:
+  - platform: template
+    name: 19Key On
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FFA25D'
+          nbits: 32
+  - platform: template
+    name: 19Key Timer Off
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF629D'
+          nbits: 32
+  - platform: template
+    name: 19Key Off
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FFE21D'
+          nbits: 32
+  - platform: template
+    name: 19Key 6h
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF22DD'
+          nbits: 32
+  - platform: template
+    name: 19Key 8h
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF02FD'
+          nbits: 32
+  - platform: template
+    name: 19Key 6639h
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FFC23D'
+          nbits: 32
+  - platform: template
+    name: 19Key 1
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FFE01F'
+          nbits: 32
+  - platform: template
+    name: 19Key 2
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FFA857'
+          nbits: 32
+  - platform: template
+    name: 19Key 3
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF906F'
+          nbits: 32
+  - platform: template
+    name: 19Key 4
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF6897'
+          nbits: 32
+  - platform: template
+    name: 19Key 5
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF9867'
+          nbits: 32
+  - platform: template
+    name: 19Key 6
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FFB04F'
+          nbits: 32
+  - platform: template
+    name: 19Key 7
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF30CF'
+          nbits: 32
+  - platform: template
+    name: 19Key 8
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF18E7'
+          nbits: 32
+  - platform: template
+    name: 19Key 9
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF7A85'
+          nbits: 32
+  - platform: template
+    name: 19Key 10
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF10EF'
+          nbits: 32
+  - platform: template
+    name: 19Key 11
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF5AA5'
+          nbits: 32
+  - platform: template
+    name: 19Key -
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF42BD'
+          nbits: 32
+  - platform: template
+    name: 19Key +
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x00FF52AD'
+          nbits: 32

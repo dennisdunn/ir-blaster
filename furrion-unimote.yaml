@@ -1,0 +1,959 @@
+binary_sensor:
+  - platform: remote_receiver
+    name: TV 1
+    lg:
+      data: '0x04FB00FF'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 2
+    lg:
+      data: '0x04FB08F7'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 3
+    lg:
+      data: '0x04FB8877'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 4
+    lg:
+      data: '0x04FBC837'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 5
+    lg:
+      data: '0x04FB28D7'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 6
+    lg:
+      data: '0x04FBA857'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 7
+    lg:
+      data: '0x04FBE817'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 8
+    lg:
+      data: '0x04FB18E7'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 9
+    lg:
+      data: '0x04FB32CD'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV 0
+    lg:
+      data: '0x04FB38C7'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV PTY
+    lg:
+      data: '0x04FBD827'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Cycle
+    lg:
+      data: '0x04FB32CD'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Red
+    lg:
+      data: '0x04FBB847'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Green
+    lg:
+      data: '0x04FBF807'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Yellow
+    lg:
+      data: '0x04FB629D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Blue
+    lg:
+      data: '0x04FBE01F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Info/OSD
+    lg:
+      data: '0x04FBF00F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Auto
+    lg:
+      data: '0x04FBB04F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Menu
+    lg:
+      data: '0x04FB609F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV F.List
+    lg:
+      data: '0x04FB48B7'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV C.List
+    lg:
+      data: '0x04FB8A75'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Fav
+    lg:
+      data: '0x04FB12ED'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV EPG
+    lg:
+      data: '0x04FBA25D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Source
+    lg:
+      data: '0x04FB02FD'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Exit
+    lg:
+      data: '0x04FB50AF'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV OK
+    lg:
+      data: '0x04FB52AD'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Left
+    lg:
+      data: '0x04FB926D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Right
+    lg:
+      data: '0x04FBD22D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Up
+    lg:
+      data: '0x04FBE21D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Down
+    lg:
+      data: '0x04FBB24D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Mute
+    lg:
+      data: '0x04FBCA35'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Vol +
+    lg:
+      data: '0x04FBC03F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Vol -
+    lg:
+      data: '0x04FB827D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Channel +
+    lg:
+      data: '0x04FB40BF'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Channel -
+    lg:
+      data: '0x04FB906F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV MTS/Audio
+    lg:
+      data: '0x04FBD02F'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV Sleep
+    lg:
+      data: '0x04FB728D'
+      nbits: 32
+  - platform: remote_receiver
+    name: TV CC
+    lg:
+      data: '0x04FB42BD'
+      nbits: 32
+  - platform: remote_receiver
+    name: Fireplace On/Off
+    lg:
+      data: '0x04FB8C73'
+      nbits: 32
+  - platform: remote_receiver
+    name: Fireplace Flames Adj
+    lg:
+      data: '0x04FB4CB3'
+      nbits: 32
+  - platform: remote_receiver
+    name: Fireplace Temp
+    lg:
+      data: '0x04FBCC33'
+      nbits: 32
+  - platform: remote_receiver
+    name: Fireplace Timer
+    lg:
+      data: '0x04FB2CD3'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo On/Off
+    lg:
+      data: '0x807F40BF'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 1
+    lg:
+      data: '0x807F807F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 2
+    lg:
+      data: '0x807F906F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 3
+    lg:
+      data: '0x807F8877'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 4
+    lg:
+      data: '0x807F9867'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 5
+    lg:
+      data: '0x807F609F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 6
+    lg:
+      data: '0x807F708F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 7
+    lg:
+      data: '0x807F6897'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 8
+    lg:
+      data: '0x807F7887'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 9
+    lg:
+      data: '0x807F728D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo 0
+    lg:
+      data: '0x807F6A95'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Info/OSD
+    lg:
+      data: '0x807FB04F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo OK
+    lg:
+      data: '0x807F8A75'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Left
+    lg:
+      data: '0x807F926D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Right
+    lg:
+      data: '0x807F9A65'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Up
+    lg:
+      data: '0x807F4AB5'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Down
+    lg:
+      data: '0x807FCA35'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Vol +
+    lg:
+      data: '0x807FC23D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Vol -
+    lg:
+      data: '0x807FC03F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Play/Pause
+    lg:
+      data: '0x807FC837'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Mute
+    lg:
+      data: '0x807FA857'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Previous
+    lg:
+      data: '0x807FD827'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Next
+    lg:
+      data: '0x807FDA25'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Stop
+    lg:
+      data: '0x807FD02F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Eject
+    lg:
+      data: '0x807F50AF'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Step
+    lg:
+      data: '0x807FB847'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo APS
+    lg:
+      data: '0x807FBA45'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo AM/FM
+    lg:
+      data: '0x807F52AD'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo DVD/USB
+    lg:
+      data: '0x807F42BD'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Aux/ARC
+    lg:
+      data: '0x807F48B7'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo AV
+    lg:
+      data: '0x807F58A7'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Clock
+    lg:
+      data: '0x807F629D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Setup
+    lg:
+      data: '0x807FD22D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo RPT
+    lg:
+      data: '0x807FEA15'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo RDM
+    lg:
+      data: '0x807FFA05'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo A-B
+    lg:
+      data: '0x807FE01F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Prog
+    lg:
+      data: '0x807FA05F'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Zoom
+    lg:
+      data: '0x807FE21D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo ST/Angle
+    lg:
+      data: '0x807FB24D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Title/PBC
+    lg:
+      data: '0x807FE817'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo EQ
+    lg:
+      data: '0x807FF20D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Sel
+    lg:
+      data: '0x807F827D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo LOC/Slow
+    lg:
+      data: '0x807FA25D'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Search/GOTO
+    lg:
+      data: '0x807FAA55'
+      nbits: 32
+  - platform: remote_receiver
+    name: Stereo Subt
+    lg:
+      data: '0x807FF807'
+      nbits: 32
+button:
+  - platform: template
+    name: TV 1
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB00FF'
+          nbits: 32
+  - platform: template
+    name: TV 2
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB08F7'
+          nbits: 32
+  - platform: template
+    name: TV 3
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB8877'
+          nbits: 32
+  - platform: template
+    name: TV 4
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBC837'
+          nbits: 32
+  - platform: template
+    name: TV 5
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB28D7'
+          nbits: 32
+  - platform: template
+    name: TV 6
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBA857'
+          nbits: 32
+  - platform: template
+    name: TV 7
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBE817'
+          nbits: 32
+  - platform: template
+    name: TV 8
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB18E7'
+          nbits: 32
+  - platform: template
+    name: TV 9
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB32CD'
+          nbits: 32
+  - platform: template
+    name: TV 0
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB38C7'
+          nbits: 32
+  - platform: template
+    name: TV PTY
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBD827'
+          nbits: 32
+  - platform: template
+    name: TV Cycle
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB32CD'
+          nbits: 32
+  - platform: template
+    name: TV Red
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBB847'
+          nbits: 32
+  - platform: template
+    name: TV Green
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBF807'
+          nbits: 32
+  - platform: template
+    name: TV Yellow
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB629D'
+          nbits: 32
+  - platform: template
+    name: TV Blue
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBE01F'
+          nbits: 32
+  - platform: template
+    name: TV Info/OSD
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBF00F'
+          nbits: 32
+  - platform: template
+    name: TV Auto
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBB04F'
+          nbits: 32
+  - platform: template
+    name: TV Menu
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB609F'
+          nbits: 32
+  - platform: template
+    name: TV F.List
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB48B7'
+          nbits: 32
+  - platform: template
+    name: TV C.List
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB8A75'
+          nbits: 32
+  - platform: template
+    name: TV Fav
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB12ED'
+          nbits: 32
+  - platform: template
+    name: TV EPG
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBA25D'
+          nbits: 32
+  - platform: template
+    name: TV Source
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB02FD'
+          nbits: 32
+  - platform: template
+    name: TV Exit
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB50AF'
+          nbits: 32
+  - platform: template
+    name: TV OK
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB52AD'
+          nbits: 32
+  - platform: template
+    name: TV Left
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB926D'
+          nbits: 32
+  - platform: template
+    name: TV Right
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBD22D'
+          nbits: 32
+  - platform: template
+    name: TV Up
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBE21D'
+          nbits: 32
+  - platform: template
+    name: TV Down
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBB24D'
+          nbits: 32
+  - platform: template
+    name: TV Mute
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBCA35'
+          nbits: 32
+  - platform: template
+    name: TV Vol +
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBC03F'
+          nbits: 32
+  - platform: template
+    name: TV Vol -
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB827D'
+          nbits: 32
+  - platform: template
+    name: TV Channel +
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB40BF'
+          nbits: 32
+  - platform: template
+    name: TV Channel -
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB906F'
+          nbits: 32
+  - platform: template
+    name: TV MTS/Audio
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBD02F'
+          nbits: 32
+  - platform: template
+    name: TV Sleep
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB728D'
+          nbits: 32
+  - platform: template
+    name: TV CC
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB42BD'
+          nbits: 32
+  - platform: template
+    name: Fireplace On/Off
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB8C73'
+          nbits: 32
+  - platform: template
+    name: Fireplace Flames Adj
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB4CB3'
+          nbits: 32
+  - platform: template
+    name: Fireplace Temp
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FBCC33'
+          nbits: 32
+  - platform: template
+    name: Fireplace Timer
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x04FB2CD3'
+          nbits: 32
+  - platform: template
+    name: Stereo On/Off
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F40BF'
+          nbits: 32
+  - platform: template
+    name: Stereo 1
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F807F'
+          nbits: 32
+  - platform: template
+    name: Stereo 2
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F906F'
+          nbits: 32
+  - platform: template
+    name: Stereo 3
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F8877'
+          nbits: 32
+  - platform: template
+    name: Stereo 4
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F9867'
+          nbits: 32
+  - platform: template
+    name: Stereo 5
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F609F'
+          nbits: 32
+  - platform: template
+    name: Stereo 6
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F708F'
+          nbits: 32
+  - platform: template
+    name: Stereo 7
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F6897'
+          nbits: 32
+  - platform: template
+    name: Stereo 8
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F7887'
+          nbits: 32
+  - platform: template
+    name: Stereo 9
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F728D'
+          nbits: 32
+  - platform: template
+    name: Stereo 0
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F6A95'
+          nbits: 32
+  - platform: template
+    name: Stereo Info/OSD
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FB04F'
+          nbits: 32
+  - platform: template
+    name: Stereo OK
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F8A75'
+          nbits: 32
+  - platform: template
+    name: Stereo Left
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F926D'
+          nbits: 32
+  - platform: template
+    name: Stereo Right
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F9A65'
+          nbits: 32
+  - platform: template
+    name: Stereo Up
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F4AB5'
+          nbits: 32
+  - platform: template
+    name: Stereo Down
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FCA35'
+          nbits: 32
+  - platform: template
+    name: Stereo Vol +
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FC23D'
+          nbits: 32
+  - platform: template
+    name: Stereo Vol -
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FC03F'
+          nbits: 32
+  - platform: template
+    name: Stereo Play/Pause
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FC837'
+          nbits: 32
+  - platform: template
+    name: Stereo Mute
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FA857'
+          nbits: 32
+  - platform: template
+    name: Stereo Previous
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FD827'
+          nbits: 32
+  - platform: template
+    name: Stereo Next
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FDA25'
+          nbits: 32
+  - platform: template
+    name: Stereo Stop
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FD02F'
+          nbits: 32
+  - platform: template
+    name: Stereo Eject
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F50AF'
+          nbits: 32
+  - platform: template
+    name: Stereo Step
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FB847'
+          nbits: 32
+  - platform: template
+    name: Stereo APS
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FBA45'
+          nbits: 32
+  - platform: template
+    name: Stereo AM/FM
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F52AD'
+          nbits: 32
+  - platform: template
+    name: Stereo DVD/USB
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F42BD'
+          nbits: 32
+  - platform: template
+    name: Stereo Aux/ARC
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F48B7'
+          nbits: 32
+  - platform: template
+    name: Stereo AV
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F58A7'
+          nbits: 32
+  - platform: template
+    name: Stereo Clock
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F629D'
+          nbits: 32
+  - platform: template
+    name: Stereo Setup
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FD22D'
+          nbits: 32
+  - platform: template
+    name: Stereo RPT
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FEA15'
+          nbits: 32
+  - platform: template
+    name: Stereo RDM
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FFA05'
+          nbits: 32
+  - platform: template
+    name: Stereo A-B
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FE01F'
+          nbits: 32
+  - platform: template
+    name: Stereo Prog
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FA05F'
+          nbits: 32
+  - platform: template
+    name: Stereo Zoom
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FE21D'
+          nbits: 32
+  - platform: template
+    name: Stereo ST/Angle
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FB24D'
+          nbits: 32
+  - platform: template
+    name: Stereo Title/PBC
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FE817'
+          nbits: 32
+  - platform: template
+    name: Stereo EQ
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FF20D'
+          nbits: 32
+  - platform: template
+    name: Stereo Sel
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807F827D'
+          nbits: 32
+  - platform: template
+    name: Stereo LOC/Slow
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FA25D'
+          nbits: 32
+  - platform: template
+    name: Stereo Search/GOTO
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FAA55'
+          nbits: 32
+  - platform: template
+    name: Stereo Subt
+    on_press:
+      - remote_transmitter.transmit_lg:
+          data: '0x807FF807'
+          nbits: 32

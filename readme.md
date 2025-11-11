@@ -1,1 +1,3 @@
-# IR Blaster - An ESPHome device simulating infrared controllers.
+# IR Blaster
+#### An ESPHome device simulating infrared controllers.
+

@@ -1,0 +1,35 @@
+# Native API to send/receive LG-formatted commands.
+
+remote_receiver:
+  pin: 
+    number: GPIO14
+    inverted: true
+  dump: all
+  on_lg:
+    then:
+      - homeassistant.event:
+          event: esphome.ir-blaster_recv_lg
+          data_template:
+            lg_command: "{{ir_data}}"
+          variables:
+            ir_data: !lambda return x.data;
+
+
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%
+
+api:
+  encryption:
+    key: "XXXXXXXXXXXXXXXXXXX"
+  actions:
+    - action: send_lg
+      variables:
+        ir_data: int
+        ir_nbits: int
+      then: 
+        - remote_transmitter.transmit_lg:
+            data: !lambda return ir_data;
+            nbits: !lambda return ir_nbits;
+

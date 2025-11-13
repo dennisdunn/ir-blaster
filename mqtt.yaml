@@ -34,12 +34,9 @@ mqtt:
     - topic: ir-blaster/tx/command/pronto
       then:
         - remote_transmitter.transmit_pronto:
-            data: !lambda |-
-              return x["data"];
+            data: !lambda return x["data"];
     - topic: ir-blaster/tx/command/lg
       then:
         - remote_transmitter.transmit_lg:
-            data: !lambda |-
-              return x["data"];
-            nbits: !lambda |-
-              return x["nbits"];
+            data: !lambda return x["data"];
+            nbits: !lambda return x["nbits"];

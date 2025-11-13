@@ -1,0 +1,447 @@
+# Native API to send/receive LG-formatted commands.
+
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%
+
+remote_receiver:
+  pin: 
+    number: GPIO14
+    inverted: true
+  dump: all
+  on_lg:
+    - if:
+        condition:
+          lambda: return x.data==0x04FB4AB5;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_on_off
+    - if:
+        condition:
+          lambda: return x.data==0x04FB00FF;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_1
+    - if:
+        condition:
+          lambda: return x.data==0x04FB08F7;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_2
+    - if:
+        condition:
+          lambda: return x.data==0x04FB8877;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_3
+    - if:
+        condition:
+          lambda: return x.data==0x04FBC837;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_4
+    - if:
+        condition:
+          lambda: return x.data==0x04FB28D7;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_5
+    - if:
+        condition:
+          lambda: return x.data==0x04FBA857;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_6
+    - if:
+        condition:
+          lambda: return x.data==0x04FBE817;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_7
+    - if:
+        condition:
+          lambda: return x.data==0x04FB18E7;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_8
+    - if:
+        condition:
+          lambda: return x.data==0x04FB32CD;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_9
+    - if:
+        condition:
+          lambda: return x.data==0x04FB38C7;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_0
+    - if:
+        condition:
+          lambda: return x.data==0x04FBD827;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_pty
+    - if:
+        condition:
+          lambda: return x.data==0x04FB32CD;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_cycle
+    - if:
+        condition:
+          lambda: return x.data==0x04FBB847;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_red
+    - if:
+        condition:
+          lambda: return x.data==0x04FBF807;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_green
+    - if:
+        condition:
+          lambda: return x.data==0x04FB629D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_yellow
+    - if:
+        condition:
+          lambda: return x.data==0x04FBE01F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_blue
+    - if:
+        condition:
+          lambda: return x.data==0x04FBF00F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_info_osd
+    - if:
+        condition:
+          lambda: return x.data==0x04FBB04F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_auto
+    - if:
+        condition:
+          lambda: return x.data==0x04FB609F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_menu
+    - if:
+        condition:
+          lambda: return x.data==0x04FB48B7;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_f_list
+    - if:
+        condition:
+          lambda: return x.data==0x04FB8A75;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_c_list
+    - if:
+        condition:
+          lambda: return x.data==0x04FB12ED;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_fav
+    - if:
+        condition:
+          lambda: return x.data==0x04FBA25D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_epg
+    - if:
+        condition:
+          lambda: return x.data==0x04FB02FD;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_source
+    - if:
+        condition:
+          lambda: return x.data==0x04FB50AF;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_exit
+    - if:
+        condition:
+          lambda: return x.data==0x04FB52AD;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_ok
+    - if:
+        condition:
+          lambda: return x.data==0x04FB926D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_left
+    - if:
+        condition:
+          lambda: return x.data==0x04FBD22D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_right
+    - if:
+        condition:
+          lambda: return x.data==0x04FBE21D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_up
+    - if:
+        condition:
+          lambda: return x.data==0x04FBB24D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_down
+    - if:
+        condition:
+          lambda: return x.data==0x04FBCA35;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_mute
+    - if:
+        condition:
+          lambda: return x.data==0x04FBC03F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_vol_plus
+    - if:
+        condition:
+          lambda: return x.data==0x04FB827D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_vol_minus
+    - if:
+        condition:
+          lambda: return x.data==0x04FB40BF;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_channel_plus
+    - if:
+        condition:
+          lambda: return x.data==0x04FB906F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_channel_minus
+    - if:
+        condition:
+          lambda: return x.data==0x04FBD02F;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_mts_audio
+    - if:
+        condition:
+          lambda: return x.data==0x04FB728D;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_sleep
+    - if:
+        condition:
+          lambda: return x.data==0x04FB42BD;
+        then:
+          - homeassistant.event:
+              event: esphome.furrion_tv_cc
+      
+  api:
+    encryption:
+      key: !secret api_key
+    actions:
+      - action: furrion_tv_on_off
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB4AB5'
+              nbits: 32
+      - action: furrion_tv_1
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB00FF'
+              nbits: 32
+      - action: furrion_tv_2
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB08F7'
+              nbits: 32
+      - action: furrion_tv_3
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB8877'
+              nbits: 32
+      - action: furrion_tv_4
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBC837'
+              nbits: 32
+      - action: furrion_tv_5
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB28D7'
+              nbits: 32
+      - action: furrion_tv_6
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBA857'
+              nbits: 32
+      - action: furrion_tv_7
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBE817'
+              nbits: 32
+      - action: furrion_tv_8
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB18E7'
+              nbits: 32
+      - action: furrion_tv_9
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB32CD'
+              nbits: 32
+      - action: furrion_tv_0
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB38C7'
+              nbits: 32
+      - action: furrion_tv_pty
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBD827'
+              nbits: 32
+      - action: furrion_tv_cycle
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB32CD'
+              nbits: 32
+      - action: furrion_tv_red
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBB847'
+              nbits: 32
+      - action: furrion_tv_green
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBF807'
+              nbits: 32
+      - action: furrion_tv_yellow
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB629D'
+              nbits: 32
+      - action: furrion_tv_blue
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBE01F'
+              nbits: 32
+      - action: furrion_tv_info_osd
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBF00F'
+              nbits: 32
+      - action: furrion_tv_auto
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBB04F'
+              nbits: 32
+      - action: furrion_tv_menu
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB609F'
+              nbits: 32
+      - action: furrion_tv_f_list
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB48B7'
+              nbits: 32
+      - action: furrion_tv_c_list
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB8A75'
+              nbits: 32
+      - action: furrion_tv_fav
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB12ED'
+              nbits: 32
+      - action: furrion_tv_epg
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBA25D'
+              nbits: 32
+      - action: furrion_tv_source
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB02FD'
+              nbits: 32
+      - action: furrion_tv_exit
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB50AF'
+              nbits: 32
+      - action: furrion_tv_ok
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB52AD'
+              nbits: 32
+      - action: furrion_tv_left
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB926D'
+              nbits: 32
+      - action: furrion_tv_right
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBD22D'
+              nbits: 32
+      - action: furrion_tv_up
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBE21D'
+              nbits: 32
+      - action: furrion_tv_down
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBB24D'
+              nbits: 32
+      - action: furrion_tv_mute
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBCA35'
+              nbits: 32
+      - action: furrion_tv_vol_plus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBC03F'
+              nbits: 32
+      - action: furrion_tv_vol_minus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB827D'
+              nbits: 32
+      - action: furrion_tv_channel_plus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB40BF'
+              nbits: 32
+      - action: furrion_tv_channel_minus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB906F'
+              nbits: 32
+      - action: furrion_tv_mts_audio
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBD02F'
+              nbits: 32
+      - action: furrion_tv_sleep
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB728D'
+              nbits: 32
+      - action: furrion_tv_cc
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB42BD'
+              nbits: 32

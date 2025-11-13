@@ -1,0 +1,578 @@
+# Native API to send/receive LG-formatted commands.
+
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%
+
+remote_receiver:
+  pin: 
+    number: GPIO14
+    inverted: true
+  dump: all
+  on_lg:
+    then:
+      - if:
+          condition:
+            lambda: return x.data==0x00FFA25D;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_on
+      - if:
+          condition:
+            lambda: return x.data==0x00FF629D;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_timer_off
+      - if:
+          condition:
+            lambda: return x.data==0x00FFE21D;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_off
+      - if:
+          condition:
+            lambda: return x.data==0x00FF22DD;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_6h
+      - if:
+          condition:
+            lambda: return x.data==0x00FF02FD;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_8h
+      - if:
+          condition:
+            lambda: return x.data==0x00FFC23D;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_6639h
+      - if:
+          condition:
+            lambda: return x.data==0x00FFE01F;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_1
+      - if:
+          condition:
+            lambda: return x.data==0x00FFA857;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_2
+      - if:
+          condition:
+            lambda: return x.data==0x00FF906F;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_3
+      - if:
+          condition:
+            lambda: return x.data==0x00FF6897;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_4
+      - if:
+          condition:
+            lambda: return x.data==0x00FF9867;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_5
+      - if:
+          condition:
+            lambda: return x.data==0x00FFB04F;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_6
+      - if:
+          condition:
+            lambda: return x.data==0x00FF30CF;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_7
+      - if:
+          condition:
+            lambda: return x.data==0x00FF18E7;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_8
+      - if:
+          condition:
+            lambda: return x.data==0x00FF7A85;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_9
+      - if:
+          condition:
+            lambda: return x.data==0x00FF10EF;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_10
+      - if:
+          condition:
+            lambda: return x.data==0x00FF5AA5;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_11
+      - if:
+          condition:
+            lambda: return x.data==0x00FF42BD;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_minus
+      - if:
+          condition:
+            lambda: return x.data==0x00FF52AD;
+          then:
+            - homeassistant.event:
+                event: esphome.generic_19key_plus
+
+  api:
+    encryption:
+      key: !secret api_key
+    actions:
+      - action: furrion_tv_on_off
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB4AB5'
+              nbits: 32
+      - action: furrion_tv_1
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB00FF'
+              nbits: 32
+      - action: furrion_tv_2
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB08F7'
+              nbits: 32
+      - action: furrion_tv_3
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB8877'
+              nbits: 32
+      - action: furrion_tv_4
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBC837'
+              nbits: 32
+      - action: furrion_tv_5
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB28D7'
+              nbits: 32
+      - action: furrion_tv_6
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBA857'
+              nbits: 32
+      - action: furrion_tv_7
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBE817'
+              nbits: 32
+      - action: furrion_tv_8
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB18E7'
+              nbits: 32
+      - action: furrion_tv_9
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB32CD'
+              nbits: 32
+      - action: furrion_tv_0
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB38C7'
+              nbits: 32
+      - action: furrion_tv_pty
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBD827'
+              nbits: 32
+      - action: furrion_tv_cycle
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB32CD'
+              nbits: 32
+      - action: furrion_tv_red
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBB847'
+              nbits: 32
+      - action: furrion_tv_green
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBF807'
+              nbits: 32
+      - action: furrion_tv_yellow
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB629D'
+              nbits: 32
+      - action: furrion_tv_blue
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBE01F'
+              nbits: 32
+      - action: furrion_tv_info_osd
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBF00F'
+              nbits: 32
+      - action: furrion_tv_auto
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBB04F'
+              nbits: 32
+      - action: furrion_tv_menu
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB609F'
+              nbits: 32
+      - action: furrion_tv_f_list
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB48B7'
+              nbits: 32
+      - action: furrion_tv_c_list
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB8A75'
+              nbits: 32
+      - action: furrion_tv_fav
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB12ED'
+              nbits: 32
+      - action: furrion_tv_epg
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBA25D'
+              nbits: 32
+      - action: furrion_tv_source
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB02FD'
+              nbits: 32
+      - action: furrion_tv_exit
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB50AF'
+              nbits: 32
+      - action: furrion_tv_ok
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB52AD'
+              nbits: 32
+      - action: furrion_tv_left
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB926D'
+              nbits: 32
+      - action: furrion_tv_right
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBD22D'
+              nbits: 32
+      - action: furrion_tv_up
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBE21D'
+              nbits: 32
+      - action: furrion_tv_down
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBB24D'
+              nbits: 32
+      - action: furrion_tv_mute
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBCA35'
+              nbits: 32
+      - action: furrion_tv_vol_plus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBC03F'
+              nbits: 32
+      - action: furrion_tv_vol_minus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB827D'
+              nbits: 32
+      - action: furrion_tv_channel_plus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB40BF'
+              nbits: 32
+      - action: furrion_tv_channel_minus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB906F'
+              nbits: 32
+      - action: furrion_tv_mts_audio
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FBD02F'
+              nbits: 32
+      - action: furrion_tv_sleep
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB728D'
+              nbits: 32
+      - action: furrion_tv_cc
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x04FB42BD'
+              nbits: 32
+      - action: stereo_on_off
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F40BF'
+              nbits: 32
+      - action: furrion_stereo_1
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F807F'
+              nbits: 32
+      - action: furrion_stereo_2
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F906F'
+              nbits: 32
+      - action: furrion_stereo_3
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F8877'
+              nbits: 32
+      - action: furrion_stereo_4
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F9867'
+              nbits: 32
+      - action: furrion_stereo_5
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F609F'
+              nbits: 32
+      - action: furrion_stereo_6
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F708F'
+              nbits: 32
+      - action: furrion_stereo_7
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F6897'
+              nbits: 32
+      - action: furrion_stereo_8
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F7887'
+              nbits: 32
+      - action: furrion_stereo_9
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F728D'
+              nbits: 32
+      - action: furrion_stereo_0
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F6A95'
+              nbits: 32
+      - action: furrion_stereo_info_osd
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FB04F'
+              nbits: 32
+      - action: furrion_stereo_ok
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F8A75'
+              nbits: 32
+      - action: furrion_stereo_left
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F926D'
+              nbits: 32
+      - action: furrion_stereo_right
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F9A65'
+              nbits: 32
+      - action: furrion_stereo_up
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F4AB5'
+              nbits: 32
+      - action: furrion_stereo_down
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FCA35'
+              nbits: 32
+      - action: furrion_stereo_vol_plus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FC23D'
+              nbits: 32
+      - action: furrion_stereo_vol_minus
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FC03F'
+              nbits: 32
+      - action: furrion_stereo_play_pause
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FC837'
+              nbits: 32
+      - action: furrion_stereo_mute
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FA857'
+              nbits: 32
+      - action: furrion_stereo_previous
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FD827'
+              nbits: 32
+      - action: furrion_stereo_next
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FDA25'
+              nbits: 32
+      - action: furrion_stereo_stop
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FD02F'
+              nbits: 32
+      - action: furrion_stereo_eject
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F50AF'
+              nbits: 32
+      - action: furrion_stereo_step
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FB847'
+              nbits: 32
+      - action: furrion_stereo_aps
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FBA45'
+              nbits: 32
+      - action: furrion_stereo_am_fm
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F52AD'
+              nbits: 32
+      - action: furrion_stereo_dvd_usb
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F42BD'
+              nbits: 32
+      - action: furrion_stereo_aux_arc
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F48B7'
+              nbits: 32
+      - action: furrion_stereo_av
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F58A7'
+              nbits: 32
+      - action: furrion_stereo_clock
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F629D'
+              nbits: 32
+      - action: furrion_stereo_setup
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FD22D'
+              nbits: 32
+      - action: furrion_stereo_rpt
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FEA15'
+              nbits: 32
+      - action: furrion_stereo_rdm
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FFA05'
+              nbits: 32
+      - action: furrion_stereo_a-b
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FE01F'
+              nbits: 32
+      - action: furrion_stereo_prog
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FA05F'
+              nbits: 32
+      - action: furrion_stereo_zoom
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FE21D'
+              nbits: 32
+      - action: furrion_stereo_st_angle
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FB24D'
+              nbits: 32
+      - action: furrion_stereo_title_pbc
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FE817'
+              nbits: 32
+      - action: furrion_stereo_eq
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FF20D'
+              nbits: 32
+      - action: furrion_stereo_sel
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807F827D'
+              nbits: 32
+      - action: furrion_stereo_loc_slow
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FA25D'
+              nbits: 32
+      - action: furrion_stereo_search_goto
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FAA55'
+              nbits: 32
+      - action: furrion_stereo_subt
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x807FF807'
+              nbits: 32
+      - action: tower_fan_power
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x00FF02FD'
+              nbits: 32
+      - action: tower_fan_oscillate
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x00FF629D'
+              nbits: 32
+      - action: tower_fan_strength
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x00FF22DD'
+              nbits: 32
+      - action: tower_fan_mode
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x00FFC23D'
+              nbits: 32
+      - action: tower_fan_timer
+        then:
+          - remote_transmitter.transmit_lg:
+              data: '0x00FFA857'
+              nbits: 32

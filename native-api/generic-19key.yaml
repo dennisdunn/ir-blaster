@@ -1,0 +1,227 @@
+# Native API to send/receive LG-formatted commands.
+
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%
+
+remote_receiver:
+  pin: 
+    number: GPIO14
+    inverted: true
+  dump: all
+  on_lg:
+    then:
+      - if:
+            condition:
+              lambda: return x.data==0x00FFA25D;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_on
+        - if:
+            condition:
+              lambda: return x.data==0x00FF629D;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_timer_off
+        - if:
+            condition:
+              lambda: return x.data==0x00FFE21D;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_off
+        - if:
+            condition:
+              lambda: return x.data==0x00FF22DD;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_6h
+        - if:
+            condition:
+              lambda: return x.data==0x00FF02FD;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_8h
+        - if:
+            condition:
+              lambda: return x.data==0x00FFC23D;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_6639h
+        - if:
+            condition:
+              lambda: return x.data==0x00FFE01F;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_1
+        - if:
+            condition:
+              lambda: return x.data==0x00FFA857;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_2
+        - if:
+            condition:
+              lambda: return x.data==0x00FF906F;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_3
+        - if:
+            condition:
+              lambda: return x.data==0x00FF6897;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_4
+        - if:
+            condition:
+              lambda: return x.data==0x00FF9867;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_5
+        - if:
+            condition:
+              lambda: return x.data==0x00FFB04F;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_6
+        - if:
+            condition:
+              lambda: return x.data==0x00FF30CF;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_7
+        - if:
+            condition:
+              lambda: return x.data==0x00FF18E7;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_8
+        - if:
+            condition:
+              lambda: return x.data==0x00FF7A85;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_9
+        - if:
+            condition:
+              lambda: return x.data==0x00FF10EF;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_10
+        - if:
+            condition:
+              lambda: return x.data==0x00FF5AA5;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_11
+        - if:
+            condition:
+              lambda: return x.data==0x00FF42BD;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_minus
+        - if:
+            condition:
+              lambda: return x.data==0x00FF52AD;
+            then:
+              - homeassistant.event:
+                  event: esphome.generic_19key_plus
+api:
+  encryption:
+    key: !secret api_key
+  actions:
+    - action: generic_19key_on
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFA25D'
+            nbits: 32
+    - action: generic_19key_timer_off
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF629D'
+            nbits: 32
+    - action: generic_19key_off
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFE21D'
+            nbits: 32
+    - action: generic_19key_6h
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF22DD'
+            nbits: 32
+    - action: generic_19key_8h
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF02FD'
+            nbits: 32
+    - action: generic_19key_6639h
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFC23D'
+            nbits: 32
+    - action: generic_19key_1
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFE01F'
+            nbits: 32
+    - action: generic_19key_2
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFA857'
+            nbits: 32
+    - action: generic_19key_3
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF906F'
+            nbits: 32
+    - action: generic_19key_4
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF6897'
+            nbits: 32
+    - action: generic_19key_5
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF9867'
+            nbits: 32
+    - action: generic_19key_6
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFB04F'
+            nbits: 32
+    - action: generic_19key_7
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF30CF'
+            nbits: 32
+    - action: generic_19key_8
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF18E7'
+            nbits: 32
+    - action: generic_19key_9
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF7A85'
+            nbits: 32
+    - action: generic_19key_10
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF10EF'
+            nbits: 32
+    - action: generic_19key_11
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF5AA5'
+            nbits: 32
+    - action: generic_19key_minus
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF42BD'
+            nbits: 32
+    - action: generic_19key_plus
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF52AD'
+            nbits: 32

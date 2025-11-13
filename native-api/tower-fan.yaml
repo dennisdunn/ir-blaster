@@ -1,0 +1,74 @@
+# Native API to send/receive LG-formatted commands.
+
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%
+
+remote_receiver:
+  pin: 
+    number: GPIO14
+    inverted: true
+  dump: all
+  on_lg:
+    then:
+      - if:
+          condition:
+            lambda: return x.data==0x00FF02FD;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_power
+      - if:
+          condition:
+            lambda: return x.data==0x00FF629D;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_oscillate
+      - if:
+          condition:
+            lambda: return x.data==0x00FF22DD;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_strength
+      - if:
+          condition:
+            lambda: return x.data==0x00FFC23D;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_mode
+      - if:
+          condition:
+            lambda: return x.data==0x00FFA857;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_timer
+                
+api:
+  encryption:
+    key: !secret api_key
+  actions:
+    - action: tower_fan_power
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF02FD'
+            nbits: 32
+    - action: tower_fan_oscillate
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF629D'
+            nbits: 32
+    - action: tower_fan_strength
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF22DD'
+            nbits: 32
+    - action: tower_fan_mode
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFC23D'
+            nbits: 32
+    - action: tower_fan_timer
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFA857'
+            nbits: 32

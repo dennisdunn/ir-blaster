@@ -1,0 +1,20 @@
+Function,LG_Code,nbits
+Generic 19Key On,0x00FFA25D,32
+Generic 19Key Timer Off,0x00FF629D,32
+Generic 19Key Off,0x00FFE21D,32
+Generic 19Key 6h,0x00FF22DD,32
+Generic 19Key 8h,0x00FF02FD,32
+Generic 19Key 6639h,0x00FFC23D,32
+Generic 19Key 1,0x00FFE01F,32
+Generic 19Key 2,0x00FFA857,32
+Generic 19Key 3,0x00FF906F,32
+Generic 19Key 4,0x00FF6897,32
+Generic 19Key 5,0x00FF9867,32
+Generic 19Key 6,0x00FFB04F,32
+Generic 19Key 7,0x00FF30CF,32
+Generic 19Key 8,0x00FF18E7,32
+Generic 19Key 9,0x00FF7A85,32
+Generic 19Key 10,0x00FF10EF,32
+Generic 19Key 11,0x00FF5AA5,32
+Generic 19Key Minus,0x00FF42BD,32
+Generic 19Key Plus,0x00FF52AD,32

@@ -1,0 +1,6 @@
+Function,LG_Code,nbits
+Tower Fan Power,0x00FF02FD,32
+Tower Fan Oscillate,0x00FF629D,32
+Tower Fan Strength,0x00FF22DD,32
+Tower Fan Mode,0x00FFC23D,32
+Tower Fan Timer,0x00FFA857,32

@@ -1,5 +1,10 @@
 # Native API to send/receive LG-formatted commands.
 
+remote_transmitter:
+  pin: GPIO4
+  # Infrared remotes use a 50% carrier signal
+  carrier_duty_percent: 50%
+
 remote_receiver:
   pin: 
     number: GPIO14
@@ -8,740 +13,873 @@ remote_receiver:
   on_lg:
     then:
       - if:
-          condition: '!lambda return x.data==0x04FB00FF;'
+          condition:
+            lambda: return x.data==0x04FB4AB5;
           then:
             - homeassistant.event:
-                event: esphome.tv_1
+                event: esphome.furrion_tv_on_off
       - if:
-          condition: '!lambda return x.data==0x04FB08F7;'
+          condition:
+            lambda: return x.data==0x04FB00FF;
           then:
             - homeassistant.event:
-                event: esphome.tv_2
+                event: esphome.furrion_tv_1
       - if:
-          condition: '!lambda return x.data==0x04FB8877;'
+          condition:
+            lambda: return x.data==0x04FB08F7;
           then:
             - homeassistant.event:
-                event: esphome.tv_3
+                event: esphome.furrion_tv_2
       - if:
-          condition: '!lambda return x.data==0x04FBC837;'
+          condition:
+            lambda: return x.data==0x04FB8877;
           then:
             - homeassistant.event:
-                event: esphome.tv_4
+                event: esphome.furrion_tv_3
       - if:
-          condition: '!lambda return x.data==0x04FB28D7;'
+          condition:
+            lambda: return x.data==0x04FBC837;
           then:
             - homeassistant.event:
-                event: esphome.tv_5
+                event: esphome.furrion_tv_4
       - if:
-          condition: '!lambda return x.data==0x04FBA857;'
+          condition:
+            lambda: return x.data==0x04FB28D7;
           then:
             - homeassistant.event:
-                event: esphome.tv_6
+                event: esphome.furrion_tv_5
       - if:
-          condition: '!lambda return x.data==0x04FBE817;'
+          condition:
+            lambda: return x.data==0x04FBA857;
           then:
             - homeassistant.event:
-                event: esphome.tv_7
+                event: esphome.furrion_tv_6
       - if:
-          condition: '!lambda return x.data==0x04FB18E7;'
+          condition:
+            lambda: return x.data==0x04FBE817;
           then:
             - homeassistant.event:
-                event: esphome.tv_8
+                event: esphome.furrion_tv_7
       - if:
-          condition: '!lambda return x.data==0x04FB32CD;'
+          condition:
+            lambda: return x.data==0x04FB18E7;
           then:
             - homeassistant.event:
-                event: esphome.tv_9
+                event: esphome.furrion_tv_8
       - if:
-          condition: '!lambda return x.data==0x04FB38C7;'
+          condition:
+            lambda: return x.data==0x04FB32CD;
           then:
             - homeassistant.event:
-                event: esphome.tv_0
+                event: esphome.furrion_tv_9
       - if:
-          condition: '!lambda return x.data==0x04FBD827;'
+          condition:
+            lambda: return x.data==0x04FB38C7;
           then:
             - homeassistant.event:
-                event: esphome.tv_pty
+                event: esphome.furrion_tv_0
       - if:
-          condition: '!lambda return x.data==0x04FB32CD;'
+          condition:
+            lambda: return x.data==0x04FBD827;
           then:
             - homeassistant.event:
-                event: esphome.tv_cycle
+                event: esphome.furrion_tv_pty
       - if:
-          condition: '!lambda return x.data==0x04FBB847;'
+          condition:
+            lambda: return x.data==0x04FB32CD;
           then:
             - homeassistant.event:
-                event: esphome.tv_red
+                event: esphome.furrion_tv_cycle
       - if:
-          condition: '!lambda return x.data==0x04FBF807;'
+          condition:
+            lambda: return x.data==0x04FBB847;
           then:
             - homeassistant.event:
-                event: esphome.tv_green
+                event: esphome.furrion_tv_red
       - if:
-          condition: '!lambda return x.data==0x04FB629D;'
+          condition:
+            lambda: return x.data==0x04FBF807;
           then:
             - homeassistant.event:
-                event: esphome.tv_yellow
+                event: esphome.furrion_tv_green
       - if:
-          condition: '!lambda return x.data==0x04FBE01F;'
+          condition:
+            lambda: return x.data==0x04FB629D;
           then:
             - homeassistant.event:
-                event: esphome.tv_blue
+                event: esphome.furrion_tv_yellow
       - if:
-          condition: '!lambda return x.data==0x04FBF00F;'
+          condition:
+            lambda: return x.data==0x04FBE01F;
           then:
             - homeassistant.event:
-                event: esphome.tv_info_osd
+                event: esphome.furrion_tv_blue
       - if:
-          condition: '!lambda return x.data==0x04FBB04F;'
+          condition:
+            lambda: return x.data==0x04FBF00F;
           then:
             - homeassistant.event:
-                event: esphome.tv_auto
+                event: esphome.furrion_tv_info_osd
       - if:
-          condition: '!lambda return x.data==0x04FB609F;'
+          condition:
+            lambda: return x.data==0x04FBB04F;
           then:
             - homeassistant.event:
-                event: esphome.tv_menu
+                event: esphome.furrion_tv_auto
       - if:
-          condition: '!lambda return x.data==0x04FB48B7;'
+          condition:
+            lambda: return x.data==0x04FB609F;
           then:
             - homeassistant.event:
-                event: esphome.tv_f_list
+                event: esphome.furrion_tv_menu
       - if:
-          condition: '!lambda return x.data==0x04FB8A75;'
+          condition:
+            lambda: return x.data==0x04FB48B7;
           then:
             - homeassistant.event:
-                event: esphome.tv_c_list
+                event: esphome.furrion_tv_f_list
       - if:
-          condition: '!lambda return x.data==0x04FB12ED;'
+          condition:
+            lambda: return x.data==0x04FB8A75;
           then:
             - homeassistant.event:
-                event: esphome.tv_fav
+                event: esphome.furrion_tv_c_list
       - if:
-          condition: '!lambda return x.data==0x04FBA25D;'
+          condition:
+            lambda: return x.data==0x04FB12ED;
           then:
             - homeassistant.event:
-                event: esphome.tv_epg
+                event: esphome.furrion_tv_fav
       - if:
-          condition: '!lambda return x.data==0x04FB02FD;'
+          condition:
+            lambda: return x.data==0x04FBA25D;
           then:
             - homeassistant.event:
-                event: esphome.tv_source
+                event: esphome.furrion_tv_epg
       - if:
-          condition: '!lambda return x.data==0x04FB50AF;'
+          condition:
+            lambda: return x.data==0x04FB02FD;
           then:
             - homeassistant.event:
-                event: esphome.tv_exit
+                event: esphome.furrion_tv_source
       - if:
-          condition: '!lambda return x.data==0x04FB52AD;'
+          condition:
+            lambda: return x.data==0x04FB50AF;
           then:
             - homeassistant.event:
-                event: esphome.tv_ok
+                event: esphome.furrion_tv_exit
       - if:
-          condition: '!lambda return x.data==0x04FB926D;'
+          condition:
+            lambda: return x.data==0x04FB52AD;
           then:
             - homeassistant.event:
-                event: esphome.tv_left
+                event: esphome.furrion_tv_ok
       - if:
-          condition: '!lambda return x.data==0x04FBD22D;'
+          condition:
+            lambda: return x.data==0x04FB926D;
           then:
             - homeassistant.event:
-                event: esphome.tv_right
+                event: esphome.furrion_tv_left
       - if:
-          condition: '!lambda return x.data==0x04FBE21D;'
+          condition:
+            lambda: return x.data==0x04FBD22D;
           then:
             - homeassistant.event:
-                event: esphome.tv_up
+                event: esphome.furrion_tv_right
       - if:
-          condition: '!lambda return x.data==0x04FBB24D;'
+          condition:
+            lambda: return x.data==0x04FBE21D;
           then:
             - homeassistant.event:
-                event: esphome.tv_down
+                event: esphome.furrion_tv_up
       - if:
-          condition: '!lambda return x.data==0x04FBCA35;'
+          condition:
+            lambda: return x.data==0x04FBB24D;
           then:
             - homeassistant.event:
-                event: esphome.tv_mute
+                event: esphome.furrion_tv_down
       - if:
-          condition: '!lambda return x.data==0x04FBC03F;'
+          condition:
+            lambda: return x.data==0x04FBCA35;
           then:
             - homeassistant.event:
-                event: esphome.tv_vol_+
+                event: esphome.furrion_tv_mute
       - if:
-          condition: '!lambda return x.data==0x04FB827D;'
+          condition:
+            lambda: return x.data==0x04FBC03F;
           then:
             - homeassistant.event:
-                event: esphome.tv_vol_-
+                event: esphome.furrion_tv_vol_plus
       - if:
-          condition: '!lambda return x.data==0x04FB40BF;'
+          condition:
+            lambda: return x.data==0x04FB827D;
           then:
             - homeassistant.event:
-                event: esphome.tv_channel_+
+                event: esphome.furrion_tv_vol_minus
       - if:
-          condition: '!lambda return x.data==0x04FB906F;'
+          condition:
+            lambda: return x.data==0x04FB40BF;
           then:
             - homeassistant.event:
-                event: esphome.tv_channel_-
+                event: esphome.furrion_tv_channel_plus
       - if:
-          condition: '!lambda return x.data==0x04FBD02F;'
+          condition:
+            lambda: return x.data==0x04FB906F;
           then:
             - homeassistant.event:
-                event: esphome.tv_mts_audio
+                event: esphome.furrion_tv_channel_minus
       - if:
-          condition: '!lambda return x.data==0x04FB728D;'
+          condition:
+            lambda: return x.data==0x04FBD02F;
           then:
             - homeassistant.event:
-                event: esphome.tv_sleep
+                event: esphome.furrion_tv_mts_audio
       - if:
-          condition: '!lambda return x.data==0x04FB42BD;'
+          condition:
+            lambda: return x.data==0x04FB728D;
           then:
             - homeassistant.event:
-                event: esphome.tv_cc
+                event: esphome.furrion_tv_sleep
       - if:
-          condition: '!lambda return x.data==0x04FB8C73;'
+          condition:
+            lambda: return x.data==0x04FB42BD;
+          then:
+            - homeassistant.event:
+                event: esphome.furrion_tv_cc
+      - if:
+          condition:
+            lambda: return x.data==0x04FB8C73;
           then:
             - homeassistant.event:
                 event: esphome.fireplace_on_off
       - if:
-          condition: '!lambda return x.data==0x04FB4CB3;'
+          condition:
+            lambda: return x.data==0x04FB4CB3;
           then:
             - homeassistant.event:
                 event: esphome.fireplace_flames_adj
       - if:
-          condition: '!lambda return x.data==0x04FBCC33;'
+          condition:
+            lambda: return x.data==0x04FBCC33;
           then:
             - homeassistant.event:
                 event: esphome.fireplace_temp
       - if:
-          condition: '!lambda return x.data==0x04FB2CD3;'
+          condition:
+            lambda: return x.data==0x04FB2CD3;
           then:
             - homeassistant.event:
                 event: esphome.fireplace_timer
       - if:
-          condition: '!lambda return x.data==0x807F40BF;'
+          condition:
+            lambda: return x.data==0x807F40BF;
           then:
             - homeassistant.event:
                 event: esphome.stereo_on_off
       - if:
-          condition: '!lambda return x.data==0x807F807F;'
+          condition:
+            lambda: return x.data==0x807F807F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_1
+                event: esphome.furrion_stereo_1
       - if:
-          condition: '!lambda return x.data==0x807F906F;'
+          condition:
+            lambda: return x.data==0x807F906F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_2
+                event: esphome.furrion_stereo_2
       - if:
-          condition: '!lambda return x.data==0x807F8877;'
+          condition:
+            lambda: return x.data==0x807F8877;
           then:
             - homeassistant.event:
-                event: esphome.stereo_3
+                event: esphome.furrion_stereo_3
       - if:
-          condition: '!lambda return x.data==0x807F9867;'
+          condition:
+            lambda: return x.data==0x807F9867;
           then:
             - homeassistant.event:
-                event: esphome.stereo_4
+                event: esphome.furrion_stereo_4
       - if:
-          condition: '!lambda return x.data==0x807F609F;'
+          condition:
+            lambda: return x.data==0x807F609F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_5
+                event: esphome.furrion_stereo_5
       - if:
-          condition: '!lambda return x.data==0x807F708F;'
+          condition:
+            lambda: return x.data==0x807F708F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_6
+                event: esphome.furrion_stereo_6
       - if:
-          condition: '!lambda return x.data==0x807F6897;'
+          condition:
+            lambda: return x.data==0x807F6897;
           then:
             - homeassistant.event:
-                event: esphome.stereo_7
+                event: esphome.furrion_stereo_7
       - if:
-          condition: '!lambda return x.data==0x807F7887;'
+          condition:
+            lambda: return x.data==0x807F7887;
           then:
             - homeassistant.event:
-                event: esphome.stereo_8
+                event: esphome.furrion_stereo_8
       - if:
-          condition: '!lambda return x.data==0x807F728D;'
+          condition:
+            lambda: return x.data==0x807F728D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_9
+                event: esphome.furrion_stereo_9
       - if:
-          condition: '!lambda return x.data==0x807F6A95;'
+          condition:
+            lambda: return x.data==0x807F6A95;
           then:
             - homeassistant.event:
-                event: esphome.stereo_0
+                event: esphome.furrion_stereo_0
       - if:
-          condition: '!lambda return x.data==0x807FB04F;'
+          condition:
+            lambda: return x.data==0x807FB04F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_info_osd
+                event: esphome.furrion_stereo_info_osd
       - if:
-          condition: '!lambda return x.data==0x807F8A75;'
+          condition:
+            lambda: return x.data==0x807F8A75;
           then:
             - homeassistant.event:
-                event: esphome.stereo_ok
+                event: esphome.furrion_stereo_ok
       - if:
-          condition: '!lambda return x.data==0x807F926D;'
+          condition:
+            lambda: return x.data==0x807F926D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_left
+                event: esphome.furrion_stereo_left
       - if:
-          condition: '!lambda return x.data==0x807F9A65;'
+          condition:
+            lambda: return x.data==0x807F9A65;
           then:
             - homeassistant.event:
-                event: esphome.stereo_right
+                event: esphome.furrion_stereo_right
       - if:
-          condition: '!lambda return x.data==0x807F4AB5;'
+          condition:
+            lambda: return x.data==0x807F4AB5;
           then:
             - homeassistant.event:
-                event: esphome.stereo_up
+                event: esphome.furrion_stereo_up
       - if:
-          condition: '!lambda return x.data==0x807FCA35;'
+          condition:
+            lambda: return x.data==0x807FCA35;
           then:
             - homeassistant.event:
-                event: esphome.stereo_down
+                event: esphome.furrion_stereo_down
       - if:
-          condition: '!lambda return x.data==0x807FC23D;'
+          condition:
+            lambda: return x.data==0x807FC23D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_vol_+
+                event: esphome.furrion_stereo_vol_plus
       - if:
-          condition: '!lambda return x.data==0x807FC03F;'
+          condition:
+            lambda: return x.data==0x807FC03F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_vol_-
+                event: esphome.furrion_stereo_vol_minus
       - if:
-          condition: '!lambda return x.data==0x807FC837;'
+          condition:
+            lambda: return x.data==0x807FC837;
           then:
             - homeassistant.event:
-                event: esphome.stereo_play_pause
+                event: esphome.furrion_stereo_play_pause
       - if:
-          condition: '!lambda return x.data==0x807FA857;'
+          condition:
+            lambda: return x.data==0x807FA857;
           then:
             - homeassistant.event:
-                event: esphome.stereo_mute
+                event: esphome.furrion_stereo_mute
       - if:
-          condition: '!lambda return x.data==0x807FD827;'
+          condition:
+            lambda: return x.data==0x807FD827;
           then:
             - homeassistant.event:
-                event: esphome.stereo_previous
+                event: esphome.furrion_stereo_previous
       - if:
-          condition: '!lambda return x.data==0x807FDA25;'
+          condition:
+            lambda: return x.data==0x807FDA25;
           then:
             - homeassistant.event:
-                event: esphome.stereo_next
+                event: esphome.furrion_stereo_next
       - if:
-          condition: '!lambda return x.data==0x807FD02F;'
+          condition:
+            lambda: return x.data==0x807FD02F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_stop
+                event: esphome.furrion_stereo_stop
       - if:
-          condition: '!lambda return x.data==0x807F50AF;'
+          condition:
+            lambda: return x.data==0x807F50AF;
           then:
             - homeassistant.event:
-                event: esphome.stereo_eject
+                event: esphome.furrion_stereo_eject
       - if:
-          condition: '!lambda return x.data==0x807FB847;'
+          condition:
+            lambda: return x.data==0x807FB847;
           then:
             - homeassistant.event:
-                event: esphome.stereo_step
+                event: esphome.furrion_stereo_step
       - if:
-          condition: '!lambda return x.data==0x807FBA45;'
+          condition:
+            lambda: return x.data==0x807FBA45;
           then:
             - homeassistant.event:
-                event: esphome.stereo_aps
+                event: esphome.furrion_stereo_aps
       - if:
-          condition: '!lambda return x.data==0x807F52AD;'
+          condition:
+            lambda: return x.data==0x807F52AD;
           then:
             - homeassistant.event:
-                event: esphome.stereo_am_fm
+                event: esphome.furrion_stereo_am_fm
       - if:
-          condition: '!lambda return x.data==0x807F42BD;'
+          condition:
+            lambda: return x.data==0x807F42BD;
           then:
             - homeassistant.event:
-                event: esphome.stereo_dvd_usb
+                event: esphome.furrion_stereo_dvd_usb
       - if:
-          condition: '!lambda return x.data==0x807F48B7;'
+          condition:
+            lambda: return x.data==0x807F48B7;
           then:
             - homeassistant.event:
-                event: esphome.stereo_aux_arc
+                event: esphome.furrion_stereo_aux_arc
       - if:
-          condition: '!lambda return x.data==0x807F58A7;'
+          condition:
+            lambda: return x.data==0x807F58A7;
           then:
             - homeassistant.event:
-                event: esphome.stereo_av
+                event: esphome.furrion_stereo_av
       - if:
-          condition: '!lambda return x.data==0x807F629D;'
+          condition:
+            lambda: return x.data==0x807F629D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_clock
+                event: esphome.furrion_stereo_clock
       - if:
-          condition: '!lambda return x.data==0x807FD22D;'
+          condition:
+            lambda: return x.data==0x807FD22D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_setup
+                event: esphome.furrion_stereo_setup
       - if:
-          condition: '!lambda return x.data==0x807FEA15;'
+          condition:
+            lambda: return x.data==0x807FEA15;
           then:
             - homeassistant.event:
-                event: esphome.stereo_rpt
+                event: esphome.furrion_stereo_rpt
       - if:
-          condition: '!lambda return x.data==0x807FFA05;'
+          condition:
+            lambda: return x.data==0x807FFA05;
           then:
             - homeassistant.event:
-                event: esphome.stereo_rdm
+                event: esphome.furrion_stereo_rdm
       - if:
-          condition: '!lambda return x.data==0x807FE01F;'
+          condition:
+            lambda: return x.data==0x807FE01F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_a-b
+                event: esphome.furrion_stereo_a-b
       - if:
-          condition: '!lambda return x.data==0x807FA05F;'
+          condition:
+            lambda: return x.data==0x807FA05F;
           then:
             - homeassistant.event:
-                event: esphome.stereo_prog
+                event: esphome.furrion_stereo_prog
       - if:
-          condition: '!lambda return x.data==0x807FE21D;'
+          condition:
+            lambda: return x.data==0x807FE21D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_zoom
+                event: esphome.furrion_stereo_zoom
       - if:
-          condition: '!lambda return x.data==0x807FB24D;'
+          condition:
+            lambda: return x.data==0x807FB24D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_st_angle
+                event: esphome.furrion_stereo_st_angle
       - if:
-          condition: '!lambda return x.data==0x807FE817;'
+          condition:
+            lambda: return x.data==0x807FE817;
           then:
             - homeassistant.event:
-                event: esphome.stereo_title_pbc
+                event: esphome.furrion_stereo_title_pbc
       - if:
-          condition: '!lambda return x.data==0x807FF20D;'
+          condition:
+            lambda: return x.data==0x807FF20D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_eq
+                event: esphome.furrion_stereo_eq
       - if:
-          condition: '!lambda return x.data==0x807F827D;'
+          condition:
+            lambda: return x.data==0x807F827D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_sel
+                event: esphome.furrion_stereo_sel
       - if:
-          condition: '!lambda return x.data==0x807FA25D;'
+          condition:
+            lambda: return x.data==0x807FA25D;
           then:
             - homeassistant.event:
-                event: esphome.stereo_loc_slow
+                event: esphome.furrion_stereo_loc_slow
       - if:
-          condition: '!lambda return x.data==0x807FAA55;'
+          condition:
+            lambda: return x.data==0x807FAA55;
           then:
             - homeassistant.event:
-                event: esphome.stereo_search_goto
+                event: esphome.furrion_stereo_search_goto
       - if:
-          condition: '!lambda return x.data==0x807FF807;'
+          condition:
+            lambda: return x.data==0x807FF807;
           then:
             - homeassistant.event:
-                event: esphome.stereo_subt
+                event: esphome.furrion_stereo_subt
       - if:
-          condition: '!lambda return x.data==0x00FFA25D;'
+          condition:
+            lambda: return x.data==0x00FFA25D;
           then:
             - homeassistant.event:
-                event: esphome.19key_on
+                event: esphome.generic_19key_on
       - if:
-          condition: '!lambda return x.data==0x00FF629D;'
+          condition:
+            lambda: return x.data==0x00FF629D;
           then:
             - homeassistant.event:
-                event: esphome.19key_timer_off
+                event: esphome.generic_19key_timer_off
       - if:
-          condition: '!lambda return x.data==0x00FFE21D;'
+          condition:
+            lambda: return x.data==0x00FFE21D;
           then:
             - homeassistant.event:
-                event: esphome.19key_off
+                event: esphome.generic_19key_off
       - if:
-          condition: '!lambda return x.data==0x00FF22DD;'
+          condition:
+            lambda: return x.data==0x00FF22DD;
           then:
             - homeassistant.event:
-                event: esphome.19key_6h
+                event: esphome.generic_19key_6h
       - if:
-          condition: '!lambda return x.data==0x00FF02FD;'
+          condition:
+            lambda: return x.data==0x00FF02FD;
           then:
             - homeassistant.event:
-                event: esphome.19key_8h
+                event: esphome.generic_19key_8h
       - if:
-          condition: '!lambda return x.data==0x00FFC23D;'
+          condition:
+            lambda: return x.data==0x00FFC23D;
           then:
             - homeassistant.event:
-                event: esphome.19key_6639h
+                event: esphome.generic_19key_6639h
       - if:
-          condition: '!lambda return x.data==0x00FFE01F;'
+          condition:
+            lambda: return x.data==0x00FFE01F;
           then:
             - homeassistant.event:
-                event: esphome.19key_1
+                event: esphome.generic_19key_1
       - if:
-          condition: '!lambda return x.data==0x00FFA857;'
+          condition:
+            lambda: return x.data==0x00FFA857;
           then:
             - homeassistant.event:
-                event: esphome.19key_2
+                event: esphome.generic_19key_2
       - if:
-          condition: '!lambda return x.data==0x00FF906F;'
+          condition:
+            lambda: return x.data==0x00FF906F;
           then:
             - homeassistant.event:
-                event: esphome.19key_3
+                event: esphome.generic_19key_3
       - if:
-          condition: '!lambda return x.data==0x00FF6897;'
+          condition:
+            lambda: return x.data==0x00FF6897;
           then:
             - homeassistant.event:
-                event: esphome.19key_4
+                event: esphome.generic_19key_4
       - if:
-          condition: '!lambda return x.data==0x00FF9867;'
+          condition:
+            lambda: return x.data==0x00FF9867;
           then:
             - homeassistant.event:
-                event: esphome.19key_5
+                event: esphome.generic_19key_5
       - if:
-          condition: '!lambda return x.data==0x00FFB04F;'
+          condition:
+            lambda: return x.data==0x00FFB04F;
           then:
             - homeassistant.event:
-                event: esphome.19key_6
+                event: esphome.generic_19key_6
       - if:
-          condition: '!lambda return x.data==0x00FF30CF;'
+          condition:
+            lambda: return x.data==0x00FF30CF;
           then:
             - homeassistant.event:
-                event: esphome.19key_7
+                event: esphome.generic_19key_7
       - if:
-          condition: '!lambda return x.data==0x00FF18E7;'
+          condition:
+            lambda: return x.data==0x00FF18E7;
           then:
             - homeassistant.event:
-                event: esphome.19key_8
+                event: esphome.generic_19key_8
       - if:
-          condition: '!lambda return x.data==0x00FF7A85;'
+          condition:
+            lambda: return x.data==0x00FF7A85;
           then:
             - homeassistant.event:
-                event: esphome.19key_9
+                event: esphome.generic_19key_9
       - if:
-          condition: '!lambda return x.data==0x00FF10EF;'
+          condition:
+            lambda: return x.data==0x00FF10EF;
           then:
             - homeassistant.event:
-                event: esphome.19key_10
+                event: esphome.generic_19key_10
       - if:
-          condition: '!lambda return x.data==0x00FF5AA5;'
+          condition:
+            lambda: return x.data==0x00FF5AA5;
           then:
             - homeassistant.event:
-                event: esphome.19key_11
+                event: esphome.generic_19key_11
       - if:
-          condition: '!lambda return x.data==0x00FF42BD;'
+          condition:
+            lambda: return x.data==0x00FF42BD;
           then:
             - homeassistant.event:
-                event: esphome.19key_-
+                event: esphome.generic_19key_minus
       - if:
-          condition: '!lambda return x.data==0x00FF52AD;'
+          condition:
+            lambda: return x.data==0x00FF52AD;
           then:
             - homeassistant.event:
-                event: esphome.19key_+
-
+                event: esphome.generic_19key_plus
+      - if:
+          condition:
+            lambda: return x.data==0x00FF02FD;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_power
+      - if:
+          condition:
+            lambda: return x.data==0x00FF629D;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_oscillate
+      - if:
+          condition:
+            lambda: return x.data==0x00FF22DD;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_strength
+      - if:
+          condition:
+            lambda: return x.data==0x00FFC23D;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_mode
+      - if:
+          condition:
+            lambda: return x.data==0x00FFA857;
+          then:
+            - homeassistant.event:
+                event: esphome.tower_fan_timer
                 
-
-
-remote_transmitter:
-  pin: GPIO4
-  # Infrared remotes use a 50% carrier signal
-  carrier_duty_percent: 50%
-
 api:
+  encryption:
+    key: !secret api_key
   actions:
-    - action: send_lg_command
-      variables:
-        ir_data: int
-        ir_nbits: int
-      then: 
+    - action: furrion_tv_on_off
+      then:
         - remote_transmitter.transmit_lg:
-            data: !lambda return ir_data;
-            nbits: !lambda return ir_nbits;
-    - action: tv_1
+            data: '0x04FB4AB5'
+            nbits: 32
+    - action: furrion_tv_1
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB00FF'
             nbits: 32
-    - action: tv_2
+    - action: furrion_tv_2
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB08F7'
             nbits: 32
-    - action: tv_3
+    - action: furrion_tv_3
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB8877'
             nbits: 32
-    - action: tv_4
+    - action: furrion_tv_4
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBC837'
             nbits: 32
-    - action: tv_5
+    - action: furrion_tv_5
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB28D7'
             nbits: 32
-    - action: tv_6
+    - action: furrion_tv_6
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBA857'
             nbits: 32
-    - action: tv_7
+    - action: furrion_tv_7
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBE817'
             nbits: 32
-    - action: tv_8
+    - action: furrion_tv_8
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB18E7'
             nbits: 32
-    - action: tv_9
+    - action: furrion_tv_9
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB32CD'
             nbits: 32
-    - action: tv_0
+    - action: furrion_tv_0
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB38C7'
             nbits: 32
-    - action: tv_pty
+    - action: furrion_tv_pty
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBD827'
             nbits: 32
-    - action: tv_cycle
+    - action: furrion_tv_cycle
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB32CD'
             nbits: 32
-    - action: tv_red
+    - action: furrion_tv_red
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBB847'
             nbits: 32
-    - action: tv_green
+    - action: furrion_tv_green
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBF807'
             nbits: 32
-    - action: tv_yellow
+    - action: furrion_tv_yellow
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB629D'
             nbits: 32
-    - action: tv_blue
+    - action: furrion_tv_blue
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBE01F'
             nbits: 32
-    - action: tv_info_osd
+    - action: furrion_tv_info_osd
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBF00F'
             nbits: 32
-    - action: tv_auto
+    - action: furrion_tv_auto
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBB04F'
             nbits: 32
-    - action: tv_menu
+    - action: furrion_tv_menu
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB609F'
             nbits: 32
-    - action: tv_f_list
+    - action: furrion_tv_f_list
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB48B7'
             nbits: 32
-    - action: tv_c_list
+    - action: furrion_tv_c_list
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB8A75'
             nbits: 32
-    - action: tv_fav
+    - action: furrion_tv_fav
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB12ED'
             nbits: 32
-    - action: tv_epg
+    - action: furrion_tv_epg
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBA25D'
             nbits: 32
-    - action: tv_source
+    - action: furrion_tv_source
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB02FD'
             nbits: 32
-    - action: tv_exit
+    - action: furrion_tv_exit
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB50AF'
             nbits: 32
-    - action: tv_ok
+    - action: furrion_tv_ok
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB52AD'
             nbits: 32
-    - action: tv_left
+    - action: furrion_tv_left
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB926D'
             nbits: 32
-    - action: tv_right
+    - action: furrion_tv_right
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBD22D'
             nbits: 32
-    - action: tv_up
+    - action: furrion_tv_up
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBE21D'
             nbits: 32
-    - action: tv_down
+    - action: furrion_tv_down
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBB24D'
             nbits: 32
-    - action: tv_mute
+    - action: furrion_tv_mute
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBCA35'
             nbits: 32
-    - action: tv_vol_+
+    - action: furrion_tv_vol_plus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBC03F'
             nbits: 32
-    - action: tv_vol_-
+    - action: furrion_tv_vol_minus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB827D'
             nbits: 32
-    - action: tv_channel_+
+    - action: furrion_tv_channel_plus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB40BF'
             nbits: 32
-    - action: tv_channel_-
+    - action: furrion_tv_channel_minus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB906F'
             nbits: 32
-    - action: tv_mts_audio
+    - action: furrion_tv_mts_audio
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FBD02F'
             nbits: 32
-    - action: tv_sleep
+    - action: furrion_tv_sleep
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB728D'
             nbits: 32
-    - action: tv_cc
+    - action: furrion_tv_cc
       then:
         - remote_transmitter.transmit_lg:
             data: '0x04FB42BD'
@@ -771,319 +909,343 @@ api:
         - remote_transmitter.transmit_lg:
             data: '0x807F40BF'
             nbits: 32
-    - action: stereo_1
+    - action: furrion_stereo_1
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F807F'
             nbits: 32
-    - action: stereo_2
+    - action: furrion_stereo_2
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F906F'
             nbits: 32
-    - action: stereo_3
+    - action: furrion_stereo_3
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F8877'
             nbits: 32
-    - action: stereo_4
+    - action: furrion_stereo_4
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F9867'
             nbits: 32
-    - action: stereo_5
+    - action: furrion_stereo_5
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F609F'
             nbits: 32
-    - action: stereo_6
+    - action: furrion_stereo_6
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F708F'
             nbits: 32
-    - action: stereo_7
+    - action: furrion_stereo_7
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F6897'
             nbits: 32
-    - action: stereo_8
+    - action: furrion_stereo_8
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F7887'
             nbits: 32
-    - action: stereo_9
+    - action: furrion_stereo_9
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F728D'
             nbits: 32
-    - action: stereo_0
+    - action: furrion_stereo_0
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F6A95'
             nbits: 32
-    - action: stereo_info_osd
+    - action: furrion_stereo_info_osd
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FB04F'
             nbits: 32
-    - action: stereo_ok
+    - action: furrion_stereo_ok
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F8A75'
             nbits: 32
-    - action: stereo_left
+    - action: furrion_stereo_left
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F926D'
             nbits: 32
-    - action: stereo_right
+    - action: furrion_stereo_right
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F9A65'
             nbits: 32
-    - action: stereo_up
+    - action: furrion_stereo_up
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F4AB5'
             nbits: 32
-    - action: stereo_down
+    - action: furrion_stereo_down
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FCA35'
             nbits: 32
-    - action: stereo_vol_+
+    - action: furrion_stereo_vol_plus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FC23D'
             nbits: 32
-    - action: stereo_vol_-
+    - action: furrion_stereo_vol_minus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FC03F'
             nbits: 32
-    - action: stereo_play_pause
+    - action: furrion_stereo_play_pause
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FC837'
             nbits: 32
-    - action: stereo_mute
+    - action: furrion_stereo_mute
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FA857'
             nbits: 32
-    - action: stereo_previous
+    - action: furrion_stereo_previous
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FD827'
             nbits: 32
-    - action: stereo_next
+    - action: furrion_stereo_next
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FDA25'
             nbits: 32
-    - action: stereo_stop
+    - action: furrion_stereo_stop
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FD02F'
             nbits: 32
-    - action: stereo_eject
+    - action: furrion_stereo_eject
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F50AF'
             nbits: 32
-    - action: stereo_step
+    - action: furrion_stereo_step
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FB847'
             nbits: 32
-    - action: stereo_aps
+    - action: furrion_stereo_aps
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FBA45'
             nbits: 32
-    - action: stereo_am_fm
+    - action: furrion_stereo_am_fm
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F52AD'
             nbits: 32
-    - action: stereo_dvd_usb
+    - action: furrion_stereo_dvd_usb
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F42BD'
             nbits: 32
-    - action: stereo_aux_arc
+    - action: furrion_stereo_aux_arc
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F48B7'
             nbits: 32
-    - action: stereo_av
+    - action: furrion_stereo_av
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F58A7'
             nbits: 32
-    - action: stereo_clock
+    - action: furrion_stereo_clock
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F629D'
             nbits: 32
-    - action: stereo_setup
+    - action: furrion_stereo_setup
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FD22D'
             nbits: 32
-    - action: stereo_rpt
+    - action: furrion_stereo_rpt
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FEA15'
             nbits: 32
-    - action: stereo_rdm
+    - action: furrion_stereo_rdm
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FFA05'
             nbits: 32
-    - action: stereo_a-b
+    - action: furrion_stereo_a-b
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FE01F'
             nbits: 32
-    - action: stereo_prog
+    - action: furrion_stereo_prog
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FA05F'
             nbits: 32
-    - action: stereo_zoom
+    - action: furrion_stereo_zoom
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FE21D'
             nbits: 32
-    - action: stereo_st_angle
+    - action: furrion_stereo_st_angle
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FB24D'
             nbits: 32
-    - action: stereo_title_pbc
+    - action: furrion_stereo_title_pbc
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FE817'
             nbits: 32
-    - action: stereo_eq
+    - action: furrion_stereo_eq
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FF20D'
             nbits: 32
-    - action: stereo_sel
+    - action: furrion_stereo_sel
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807F827D'
             nbits: 32
-    - action: stereo_loc_slow
+    - action: furrion_stereo_loc_slow
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FA25D'
             nbits: 32
-    - action: stereo_search_goto
+    - action: furrion_stereo_search_goto
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FAA55'
             nbits: 32
-    - action: stereo_subt
+    - action: furrion_stereo_subt
       then:
         - remote_transmitter.transmit_lg:
             data: '0x807FF807'
             nbits: 32
-    - action: 19key_on
+    - action: generic_19key_on
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FFA25D'
             nbits: 32
-    - action: 19key_timer_off
+    - action: generic_19key_timer_off
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF629D'
             nbits: 32
-    - action: 19key_off
+    - action: generic_19key_off
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FFE21D'
             nbits: 32
-    - action: 19key_6h
+    - action: generic_19key_6h
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF22DD'
             nbits: 32
-    - action: 19key_8h
+    - action: generic_19key_8h
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF02FD'
             nbits: 32
-    - action: 19key_6639h
+    - action: generic_19key_6639h
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FFC23D'
             nbits: 32
-    - action: 19key_1
+    - action: generic_19key_1
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FFE01F'
             nbits: 32
-    - action: 19key_2
+    - action: generic_19key_2
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FFA857'
             nbits: 32
-    - action: 19key_3
+    - action: generic_19key_3
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF906F'
             nbits: 32
-    - action: 19key_4
+    - action: generic_19key_4
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF6897'
             nbits: 32
-    - action: 19key_5
+    - action: generic_19key_5
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF9867'
             nbits: 32
-    - action: 19key_6
+    - action: generic_19key_6
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FFB04F'
             nbits: 32
-    - action: 19key_7
+    - action: generic_19key_7
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF30CF'
             nbits: 32
-    - action: 19key_8
+    - action: generic_19key_8
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF18E7'
             nbits: 32
-    - action: 19key_9
+    - action: generic_19key_9
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF7A85'
             nbits: 32
-    - action: 19key_10
+    - action: generic_19key_10
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF10EF'
             nbits: 32
-    - action: 19key_11
+    - action: generic_19key_11
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF5AA5'
             nbits: 32
-    - action: 19key_-
+    - action: generic_19key_minus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF42BD'
             nbits: 32
-    - action: 19key_+
+    - action: generic_19key_plus
       then:
         - remote_transmitter.transmit_lg:
             data: '0x00FF52AD'
             nbits: 32
-
+    - action: tower_fan_power
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF02FD'
+            nbits: 32
+    - action: tower_fan_oscillate
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF629D'
+            nbits: 32
+    - action: tower_fan_strength
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FF22DD'
+            nbits: 32
+    - action: tower_fan_mode
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFC23D'
+            nbits: 32
+    - action: tower_fan_timer
+      then:
+        - remote_transmitter.transmit_lg:
+            data: '0x00FFA857'
+            nbits: 32

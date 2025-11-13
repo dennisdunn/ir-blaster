@@ -155,7 +155,7 @@ binary_sensor:
       data: '0x04FBCA35'
       nbits: 32
   - platform: remote_receiver
-    name: TV Vol +
+    name: TV Vol plus
     lg:
       data: '0x04FBC03F'
       nbits: 32
@@ -165,7 +165,7 @@ binary_sensor:
       data: '0x04FB827D'
       nbits: 32
   - platform: remote_receiver
-    name: TV Channel +
+    name: TV Channel plus
     lg:
       data: '0x04FB40BF'
       nbits: 32
@@ -295,7 +295,7 @@ binary_sensor:
       data: '0x807FCA35'
       nbits: 32
   - platform: remote_receiver
-    name: Stereo Vol +
+    name: Stereo Vol plus
     lg:
       data: '0x807FC23D'
       nbits: 32
@@ -622,7 +622,7 @@ button:
           data: '0x04FBCA35'
           nbits: 32
   - platform: template
-    name: TV Vol +
+    name: TV Vol plus
     on_press:
       - remote_transmitter.transmit_lg:
           data: '0x04FBC03F'
@@ -634,7 +634,7 @@ button:
           data: '0x04FB827D'
           nbits: 32
   - platform: template
-    name: TV Channel +
+    name: TV Channel plus
     on_press:
       - remote_transmitter.transmit_lg:
           data: '0x04FB40BF'
@@ -790,7 +790,7 @@ button:
           data: '0x807FCA35'
           nbits: 32
   - platform: template
-    name: Stereo Vol +
+    name: Stereo Vol plus
     on_press:
       - remote_transmitter.transmit_lg:
           data: '0x807FC23D'

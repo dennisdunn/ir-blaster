@@ -90,7 +90,7 @@ binary_sensor:
       data: '0x00FF42BD'
       nbits: 32
   - platform: remote_receiver
-    name: 19Key +
+    name: 19Key plus
     lg:
       data: '0x00FF52AD'
       nbits: 32
@@ -204,7 +204,7 @@ button:
           data: '0x00FF42BD'
           nbits: 32
   - platform: template
-    name: 19Key +
+    name: 19Key plus
     on_press:
       - remote_transmitter.transmit_lg:
           data: '0x00FF52AD'
